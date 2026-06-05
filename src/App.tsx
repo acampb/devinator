@@ -12,6 +12,8 @@ function App() {
     setDraft('')
   }
 
+  const clearAll = () => setTodos([])
+
   return (
     <main className="app">
       <h1>Todo Testbed</h1>
@@ -35,11 +37,14 @@ function App() {
       {todos.length === 0 ? (
         <p className="empty">No todos yet.</p>
       ) : (
-        <ul className="todo-list">
-          {todos.map((todo, i) => (
-            <li key={i}>{todo}</li>
-          ))}
-        </ul>
+        <>
+          <ul className="todo-list">
+            {todos.map((todo, i) => (
+              <li key={i}>{todo}</li>
+            ))}
+          </ul>
+          <button onClick={clearAll}>Clear all</button>
+        </>
       )}
     </main>
   )
