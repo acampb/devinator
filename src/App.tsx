@@ -32,6 +32,7 @@ function App() {
         <button type="submit">Add</button>
       </form>
 
+      <h2>{todos.length} todo{todos.length !== 1 ? 's' : ''}</h2>
       {todos.length === 0 ? (
         <p className="empty">No todos yet.</p>
       ) : (
