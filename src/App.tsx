@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const __unusedAutofixProbe = 123
   const [todos, setTodos] = useState<string[]>([])
   const [draft, setDraft] = useState('')
 
