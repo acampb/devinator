@@ -41,6 +41,10 @@ function App() {
           ))}
         </ul>
       )}
+
+      <footer style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#888' }}>
+        Built with Vite
+      </footer>
     </main>
   )
 }
