@@ -4,6 +4,7 @@ import './App.css'
 function App() {
   const [todos, setTodos] = useState<string[]>([])
   const [draft, setDraft] = useState('')
+  const unusedAutofixProbe = 42
 
   const addTodo = () => {
     const text = draft.trim()
