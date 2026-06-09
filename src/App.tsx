@@ -1,48 +1,48 @@
-import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [todos, setTodos] = useState<string[]>([])
-  const [draft, setDraft] = useState('')
-
-  const addTodo = () => {
-    const text = draft.trim()
-    if (!text) return
-    setTodos((prev) => [...prev, text])
-    setDraft('')
-  }
-
   return (
-    <main className="app">
-      <h1>Todo Testbed</h1>
+    <div className="landing">
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="container">
+          <h1 className="headline">Get organized. Stay focused.</h1>
+          <p className="subheadline">
+            Simple task management for teams that move fast.
+          </p>
+          <button className="cta-button">Get Started Free</button>
+        </div>
+      </section>
 
-      <form
-        className="add-form"
-        onSubmit={(e) => {
-          e.preventDefault()
-          addTodo()
-        }}
-      >
-        <input
-          aria-label="New todo"
-          placeholder="What needs doing?"
-          value={draft}
-          onChange={(e) => setDraft(e.target.value)}
-        />
-        <button type="submit">Add</button>
-      </form>
+      {/* Features Section */}
+      <section className="features">
+        <div className="container">
+          <div className="feature-grid">
+            <div className="feature">
+              <h3>⚡ Fast & Simple</h3>
+              <p>No learning curve. Start organizing in seconds.</p>
+            </div>
+            <div className="feature">
+              <h3>🤝 Collaborate</h3>
+              <p>Share tasks with your team and track progress together.</p>
+            </div>
+            <div className="feature">
+              <h3>📱 Everywhere</h3>
+              <p>Access your tasks from any device, anytime.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <h2>{todos.length} todo{todos.length !== 1 ? 's' : ''}</h2>
-      {todos.length === 0 ? (
-        <p className="empty">No todos yet.</p>
-      ) : (
-        <ul className="todo-list">
-          {todos.map((todo, i) => (
-            <li key={i}>{todo}</li>
-          ))}
-        </ul>
-      )}
-    </main>
+      {/* CTA Footer */}
+      <section className="cta-footer">
+        <div className="container">
+          <h2>Ready to get started?</h2>
+          <button className="cta-button">Create Your Free Account</button>
+          <p className="footer-note">No credit card required. Free forever plan available.</p>
+        </div>
+      </section>
+    </div>
   )
 }
 
