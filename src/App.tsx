@@ -1,49 +1,7 @@
-import { useState } from 'react'
-import './App.css'
+import LandingPage from './LandingPage'
 
 function App() {
-  const [todos, setTodos] = useState<string[]>([])
-  const [draft, setDraft] = useState('')
-
-  const addTodo = () => {
-    const text = draft.trim()
-    if (!text) return
-    setTodos((prev) => [...prev, text])
-    setDraft('')
-  }
-
-  return (
-    <main className="app">
-      <h1>Todo Testbed</h1>
-
-      <form
-        className="add-form"
-        onSubmit={(e) => {
-          e.preventDefault()
-          addTodo()
-        }}
-      >
-        <input
-          aria-label="New todo"
-          placeholder="What needs doing?"
-          value={draft}
-          onChange={(e) => setDraft(e.target.value)}
-        />
-        <button type="submit">Add</button>
-      </form>
-
-      <h2>{todos.length} todo{todos.length !== 1 ? 's' : ''}</h2>
-      {todos.length === 0 ? (
-        <p className="empty">No todos yet.</p>
-      ) : (
-        <ul className="todo-list">
-          {todos.map((todo, i) => (
-            <li key={i}>{todo}</li>
-          ))}
-        </ul>
-      )}
-    </main>
-  )
+  return <LandingPage />
 }
 
 export default App

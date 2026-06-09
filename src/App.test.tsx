@@ -1,25 +1,23 @@
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import App from './App'
 
 describe('App', () => {
-  it('renders the heading and an empty state', () => {
+  it('renders the landing page hero heading', () => {
     render(<App />)
     expect(
-      screen.getByRole('heading', { name: 'Todo Testbed' }),
+      screen.getByRole('heading', { level: 1 }),
     ).toBeInTheDocument()
-    expect(screen.getByText('No todos yet.')).toBeInTheDocument()
   })
 
-  it('adds a typed todo to the rendered list', async () => {
-    const user = userEvent.setup()
+  it('renders all six feature cards', () => {
     render(<App />)
+    const cards = screen.getAllByRole('heading', { level: 3 })
+    expect(cards).toHaveLength(6)
+  })
 
-    await user.type(screen.getByLabelText('New todo'), 'Write a test')
-    await user.click(screen.getByRole('button', { name: 'Add' }))
-
-    expect(screen.getByRole('listitem')).toHaveTextContent('Write a test')
-    expect(screen.queryByText('No todos yet.')).not.toBeInTheDocument()
+  it('renders the get-started code block', () => {
+    render(<App />)
+    expect(screen.getByText(/npm run dev/)).toBeInTheDocument()
   })
 })
