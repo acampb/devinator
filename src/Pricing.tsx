@@ -1,4 +1,4 @@
-export function Pricing() {
+export function Pricing({ onNavigate }: { onNavigate: (page: 'home' | 'about' | 'pricing') => void }) {
   return (
     <main className="app">
       <h1>Pricing</h1>
@@ -65,7 +65,7 @@ export function Pricing() {
 
       <nav style={{ marginTop: '3rem', paddingTop: '1rem', borderTop: '1px solid #ddd', textAlign: 'center' }}>
         <button
-          onClick={() => window.location.href = '/'}
+          onClick={() => onNavigate('home')}
           className="nav-link"
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
         >
