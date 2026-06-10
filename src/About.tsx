@@ -1,4 +1,4 @@
-export function About() {
+export function About({ onNavigate }: { onNavigate: (page: 'home' | 'about' | 'pricing') => void }) {
   return (
     <main className="app">
       <h1>About Todo Testbed</h1>
@@ -43,7 +43,13 @@ export function About() {
       </section>
 
       <nav style={{ marginTop: '2rem', paddingTop: '1rem', borderTop: '1px solid #ddd' }}>
-        <a href="/" className="nav-link">← Back to Todo</a>
+        <button
+          onClick={() => onNavigate('home')}
+          className="nav-link"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+        >
+          ← Back to Todo
+        </button>
       </nav>
     </main>
   )

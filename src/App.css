@@ -94,3 +94,121 @@ section p {
   line-height: 1.6;
   color: #333;
 }
+
+/* Pricing Page */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.pricing-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  background-color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card.featured {
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+  transform: scale(1.02);
+}
+
+.pricing-card.featured:hover {
+  box-shadow: 0 8px 16px rgba(0, 102, 204, 0.2);
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0066cc;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.pricing-card h2 {
+  margin: 0.5rem 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.pricing-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0066cc;
+}
+
+.period {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.pricing-description {
+  color: #666;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.pricing-features li {
+  margin: 0.75rem 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.pricing-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.pricing-button.primary {
+  background-color: #0066cc;
+  color: white;
+}
+
+.pricing-button.primary:hover {
+  background-color: #0052a3;
+}
+
+/* Responsive: stack pricing cards on mobile */
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+}
