@@ -1,0 +1,92 @@
+/* Session banner */
+.demo-banner {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
+  color: #7a6000;
+  margin-bottom: 1.25rem;
+}
+
+/* List header row (counter + clear button side by side) */
+.demo-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Override .todo-list li to use flexbox for the action buttons */
+.todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0.35rem 0;
+}
+
+.todo-text {
+  flex: 1;
+}
+
+.todo-done .todo-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Toggle (✓) button */
+.toggle-btn {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: 1.5px solid #bbb;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.todo-done .toggle-btn {
+  background: #0066cc;
+  border-color: #0066cc;
+  color: #fff;
+}
+
+/* Delete (✕) button */
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ccc;
+  font-size: 1rem;
+  padding: 0 0.25rem;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.delete-btn:hover {
+  color: #d32f2f;
+}
+
+/* Clear all button */
+.clear-btn {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #888;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.clear-btn:hover {
+  border-color: #d32f2f;
+  color: #d32f2f;
+}
