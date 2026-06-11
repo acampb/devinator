@@ -3,11 +3,12 @@ import './App.css'
 import { About } from './About'
 import { FAQ } from './FAQ'
 import { Pricing } from './Pricing'
+import { Demo } from './Demo'
 
 function App() {
   const [todos, setTodos] = useState<string[]>([])
   const [draft, setDraft] = useState('')
-  const [page, setPage] = useState<'home' | 'about' | 'pricing' | 'faq'>('home')
+  const [page, setPage] = useState<'home' | 'about' | 'pricing' | 'faq' | 'demo'>('home')
 
   const addTodo = () => {
     const text = draft.trim()
@@ -16,6 +17,12 @@ function App() {
     setDraft('')
   }
 
+  if (page === 'demo') {
+    return <Demo onNavigate={setPage} />
+  }
+
+  // TODO: About, FAQ, and Pricing use <a href="/"> for back-navigation which bypasses
+  // React state. Pass onNavigate to them in a future PR to fix this rough edge.
   if (page === 'about') {
     return (
       <About />
@@ -39,6 +46,13 @@ function App() {
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', gap: '0.5rem' }}>
         <h1>Todo Testbed</h1>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <button
+            onClick={() => setPage('demo')}
+            className="nav-button"
+            title="Try the live demo"
+          >
+            Demo
+          </button>
           <button
             onClick={() => setPage('pricing')}
             className="nav-button"
