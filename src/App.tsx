@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import './App.css'
 import { About } from './About'
+import { FAQ } from './FAQ'
 import { Pricing } from './Pricing'
 
 function App() {
   const [todos, setTodos] = useState<string[]>([])
   const [draft, setDraft] = useState('')
-  const [page, setPage] = useState<'home' | 'about' | 'pricing'>('home')
+  const [page, setPage] = useState<'home' | 'about' | 'pricing' | 'faq'>('home')
 
   const addTodo = () => {
     const text = draft.trim()
@@ -18,6 +19,12 @@ function App() {
   if (page === 'about') {
     return (
       <About />
+    )
+  }
+
+  if (page === 'faq') {
+    return (
+      <FAQ />
     )
   }
 
@@ -38,6 +45,13 @@ function App() {
             title="View pricing plans"
           >
             Pricing
+          </button>
+          <button
+            onClick={() => setPage('faq')}
+            className="nav-button"
+            title="View frequently asked questions"
+          >
+            FAQ
           </button>
           <button
             onClick={() => setPage('about')}
