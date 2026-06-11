@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import './App.css'
 import { About } from './About'
+import { Pricing } from './Pricing'
 
 function App() {
   const [todos, setTodos] = useState<string[]>([])
   const [draft, setDraft] = useState('')
-  const [page, setPage] = useState<'home' | 'about'>('home')
+  const [page, setPage] = useState<'home' | 'about' | 'pricing'>('home')
 
   const addTodo = () => {
     const text = draft.trim()
@@ -20,17 +21,32 @@ function App() {
     )
   }
 
+  if (page === 'pricing') {
+    return (
+      <Pricing />
+    )
+  }
+
   return (
     <main className="app">
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', gap: '0.5rem' }}>
         <h1>Todo Testbed</h1>
-        <button
-          onClick={() => setPage('about')}
-          className="nav-button"
-          title="Learn about this app"
-        >
-          About
-        </button>
+        <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <button
+            onClick={() => setPage('pricing')}
+            className="nav-button"
+            title="View pricing plans"
+          >
+            Pricing
+          </button>
+          <button
+            onClick={() => setPage('about')}
+            className="nav-button"
+            title="Learn about this app"
+          >
+            About
+          </button>
+        </div>
       </header>
 
       <form
