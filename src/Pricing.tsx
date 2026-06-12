@@ -29,7 +29,7 @@ export function Pricing() {
           <div className="badge">Most Popular</div>
           <h2>Pro</h2>
           <div className="price">
-            <span className="amount">$100</span>
+            <span className="amount">$12</span>
             <span className="period">/month</span>
           </div>
           <ul className="features">
