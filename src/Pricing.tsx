@@ -33,11 +33,11 @@ export function Pricing() {
             <span className="period">/month</span>
           </div>
           <ul className="features">
-            <li>✓ Everything in Free</li>
-            <li>✓ Advanced features</li>
-            <li>✓ Priority support</li>
-            <li>✓ API access</li>
-            <li>✓ Custom integrations</li>
+            <li>✓ Unlimited tasks &amp; projects</li>
+            <li>✓ Team workspaces (up to 15 members)</li>
+            <li>✓ Recurring tasks &amp; templates</li>
+            <li>✓ Calendar &amp; Slack integrations</li>
+            <li>✓ Priority email support</li>
           </ul>
           <button className="cta-button cta-primary">Start Free Trial</button>
         </div>
