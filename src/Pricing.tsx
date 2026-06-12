@@ -15,11 +15,11 @@ export function Pricing() {
             <span className="period">/month</span>
           </div>
           <ul className="features">
-            <li>✓ Add todos</li>
-            <li>✓ View todo list</li>
-            <li>✓ Live counter</li>
-            <li className="unavailable">✗ Advanced features</li>
-            <li className="unavailable">✗ Priority support</li>
+            <li>✓ Up to 25 tasks</li>
+            <li>✓ Due dates &amp; reminders</li>
+            <li>✓ Mobile &amp; desktop apps</li>
+            <li className="unavailable">✗ Team workspaces</li>
+            <li className="unavailable">✗ Integrations &amp; API</li>
           </ul>
           <button className="cta-button">Get Started</button>
         </div>
