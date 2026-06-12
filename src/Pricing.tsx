@@ -50,10 +50,10 @@ export function Pricing() {
           </div>
           <ul className="features">
             <li>✓ Everything in Pro</li>
-            <li>✓ Dedicated support</li>
-            <li>✓ SLA guarantees</li>
-            <li>✓ On-premise option</li>
-            <li>✓ Custom features</li>
+            <li>✓ Unlimited team members &amp; workspaces</li>
+            <li>✓ SSO &amp; advanced permissions</li>
+            <li>✓ Dedicated customer success manager</li>
+            <li>✓ Custom SLA &amp; on-premise deployment</li>
           </ul>
           <button className="cta-button">Contact Sales</button>
         </div>
