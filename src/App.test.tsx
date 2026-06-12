@@ -4,8 +4,20 @@ import { describe, expect, it } from 'vitest'
 import App from './App'
 
 describe('App', () => {
-  it('renders the heading and an empty state', () => {
+  it('renders the landing page by default with a CTA button', () => {
     render(<App />)
+    expect(screen.getByText('FlowTask')).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Start for free →' }),
+    ).toBeInTheDocument()
+  })
+
+  it('renders the heading and an empty state', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: 'Start for free →' }))
+
     expect(
       screen.getByRole('heading', { name: 'Todo Testbed' }),
     ).toBeInTheDocument()
@@ -15,6 +27,8 @@ describe('App', () => {
   it('adds a typed todo to the rendered list', async () => {
     const user = userEvent.setup()
     render(<App />)
+
+    await user.click(screen.getByRole('button', { name: 'Start for free →' }))
 
     await user.type(screen.getByLabelText('New todo'), 'Write a test')
     await user.click(screen.getByRole('button', { name: 'Add' }))

@@ -3,17 +3,22 @@ import './App.css'
 import { About } from './About'
 import { FAQ } from './FAQ'
 import { Pricing } from './Pricing'
+import { Landing } from './Landing'
 
 function App() {
   const [todos, setTodos] = useState<string[]>([])
   const [draft, setDraft] = useState('')
-  const [page, setPage] = useState<'home' | 'about' | 'pricing' | 'faq'>('home')
+  const [page, setPage] = useState<'home' | 'about' | 'pricing' | 'faq' | 'landing'>('landing')
 
   const addTodo = () => {
     const text = draft.trim()
     if (!text) return
     setTodos((prev) => [...prev, text])
     setDraft('')
+  }
+
+  if (page === 'landing') {
+    return <Landing onNavigate={setPage} />
   }
 
   if (page === 'about') {
