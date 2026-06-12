@@ -3,7 +3,7 @@ export function Pricing() {
     <main className="app">
       <h1>Pricing</h1>
       <p style={{ textAlign: 'center', color: '#666', marginBottom: '2rem' }}>
-        Choose the plan that's right for you
+        Simple, transparent pricing for individuals and teams
       </p>
 
       <div className="pricing-grid">
