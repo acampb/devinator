@@ -1,0 +1,96 @@
+.tic-tac-toe {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.tic-tac-toe h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+.status {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.status .winner {
+  color: #22c55e;
+  font-size: 1.3rem;
+}
+
+.status .draw {
+  color: #f59e0b;
+  font-size: 1.3rem;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  background-color: #e5e7eb;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.square {
+  aspect-ratio: 1;
+  font-size: 2rem;
+  font-weight: bold;
+  border: 2px solid #d1d5db;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+  color: #1f2937;
+}
+
+.square:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  transform: scale(1.05);
+}
+
+.square:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.square:disabled {
+  cursor: not-allowed;
+}
+
+.square.X {
+  color: #3b82f6;
+}
+
+.square.O {
+  color: #ef4444;
+}
+
+.reset-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reset-button:active {
+  transform: translateY(0);
+}
