@@ -3,11 +3,12 @@ import './App.css'
 import { About } from './About'
 import { FAQ } from './FAQ'
 import { Pricing } from './Pricing'
+import { TicTacToe } from './TicTacToe'
 
 function App() {
   const [todos, setTodos] = useState<string[]>([])
   const [draft, setDraft] = useState('')
-  const [page, setPage] = useState<'home' | 'about' | 'pricing' | 'faq'>('home')
+  const [page, setPage] = useState<'home' | 'about' | 'pricing' | 'faq' | 'tictactoe'>('home')
 
   const addTodo = () => {
     const text = draft.trim()
@@ -17,20 +18,27 @@ function App() {
   }
 
   if (page === 'about') {
-    return (
-      <About />
-    )
+    return <About />
   }
 
   if (page === 'faq') {
-    return (
-      <FAQ />
-    )
+    return <FAQ />
   }
 
   if (page === 'pricing') {
+    return <Pricing />
+  }
+
+  if (page === 'tictactoe') {
     return (
-      <Pricing />
+      <>
+        <div style={{ maxWidth: '32rem', margin: '1rem auto', padding: '0 1rem' }}>
+          <button className="nav-button" onClick={() => setPage('home')}>
+            ← Back
+          </button>
+        </div>
+        <TicTacToe />
+      </>
     )
   }
 
@@ -39,6 +47,13 @@ function App() {
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', gap: '0.5rem' }}>
         <h1>Todo Testbed</h1>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <button
+            onClick={() => setPage('tictactoe')}
+            className="nav-button"
+            title="Play Tic Tac Toe"
+          >
+            Tic Tac Toe
+          </button>
           <button
             onClick={() => setPage('pricing')}
             className="nav-button"
