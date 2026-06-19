@@ -3,11 +3,12 @@ import './App.css'
 import { About } from './About'
 import { FAQ } from './FAQ'
 import { Pricing } from './Pricing'
+import { WordleSolver } from './WordleSolver'
 
 function App() {
   const [todos, setTodos] = useState<string[]>([])
   const [draft, setDraft] = useState('')
-  const [page, setPage] = useState<'home' | 'about' | 'pricing' | 'faq'>('home')
+  const [page, setPage] = useState<'home' | 'about' | 'pricing' | 'faq' | 'wordle'>('home')
 
   const addTodo = () => {
     const text = draft.trim()
@@ -34,11 +35,22 @@ function App() {
     )
   }
 
+  if (page === 'wordle') {
+    return <WordleSolver />
+  }
+
   return (
     <main className="app">
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', gap: '0.5rem' }}>
         <h1>Todo Testbed</h1>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <button
+            onClick={() => setPage('wordle')}
+            className="nav-button"
+            title="Wordle Solver"
+          >
+            Wordle Solver
+          </button>
           <button
             onClick={() => setPage('pricing')}
             className="nav-button"
