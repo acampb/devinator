@@ -1,0 +1,187 @@
+.ttt-page {
+  max-width: 32rem;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+
+.ttt-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ttt-header h1 {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+/* ── Score board ─────────────────────────────────────────────────────────────── */
+
+.ttt-score-board {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.ttt-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  min-width: 3.5rem;
+}
+
+.ttt-score--ai {
+  border-color: #f0a0a0;
+  background-color: #fff0f0;
+}
+
+.ttt-score--draw {
+  border-color: #c8c8c8;
+  background-color: #f8f8f8;
+}
+
+.ttt-score-label {
+  font-size: 0.7rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+
+.ttt-score-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0066cc;
+  line-height: 1.2;
+}
+
+.ttt-score--ai .ttt-score-value {
+  color: #cc3300;
+}
+
+/* ── Status ──────────────────────────────────────────────────────────────────── */
+
+.ttt-status {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0 1.25rem 0;
+  min-height: 1.6rem;
+  color: #333;
+}
+
+/* ── Board ───────────────────────────────────────────────────────────────────── */
+
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  width: min(90vw, 18rem);
+  margin-bottom: 1.5rem;
+}
+
+.ttt-cell {
+  aspect-ratio: 1;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background-color: #f8f8f8;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  line-height: 1;
+}
+
+.ttt-cell:not(:disabled):hover {
+  background-color: #e8f0fb;
+  border-color: #0066cc;
+  transform: scale(1.04);
+}
+
+.ttt-cell--x {
+  color: #0066cc;
+}
+
+.ttt-cell--o {
+  color: #cc3300;
+}
+
+.ttt-cell--win {
+  background-color: #d4edda;
+  border-color: #28a745;
+  animation: ttt-pop 0.25s ease-out;
+}
+
+.ttt-cell:disabled {
+  cursor: default;
+}
+
+@keyframes ttt-pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+/* ── Actions ─────────────────────────────────────────────────────────────────── */
+
+.ttt-actions {
+  margin-bottom: 1rem;
+}
+
+.ttt-new-game {
+  padding: 0.6rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ttt-new-game:hover {
+  background-color: #0052a3;
+}
+
+/* ── Hint ────────────────────────────────────────────────────────────────────── */
+
+.ttt-hint {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+  text-align: center;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .ttt-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ttt-board {
+    width: min(90vw, 16rem);
+  }
+
+  .ttt-cell {
+    font-size: 2rem;
+  }
+}
